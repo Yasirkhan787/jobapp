@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.yasir.jobapp.JobApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 14.30 s -- in com.yasir.jobapp.JobApplicationTests

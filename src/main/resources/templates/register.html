@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{base::layout(~{::section})}">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Registration</title>
+
+</head>
+<body>
+<section>
+    <div class="container p-3">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-header text-center fs-4">Register Page</div>
+
+                    <div th:if="${errorMessage}" class="alert alert-danger">
+                        <span th:text="${errorMessage}"></span>
+                    </div>
+
+
+                    <div class="card-body">
+                        <form th:action="@{/saveUser}" method="post" th:object="${user}">
+                            <div class="mb-3">
+                                <label for="firstName">Enter First Name</label>
+                                <input type="text"
+                                       id="firstName"
+                                       class="form-control"
+                                       th:field="*{firstName}"
+                                       required autofocus="autofocus">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="lastName">Enter First Name</label>
+                                <input type="text"
+                                       id="lastName"
+                                       class="form-control" th:field="*{lastName}"
+                                       required autofocus="autofocus">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="email">Email</label>
+                                <input type="email"
+                                       id="email"
+                                       class="form-control" th:field="*{email}"
+                                       required autofocus="autofocus">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="password">Password</label>
+                                <input type="password"
+                                       id="password"
+                                       class="form-control" th:field="*{password}"
+                                       required autofocus="autofocus">
+                            </div>
+
+                            <button class="btn btn-primary col-md-12">Register</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+                                    <!--    <div class="container p-5"> &lt;!&ndash; Creates a container with padding.&ndash;&gt;-->
+<!--        <div class="row"> &lt;!&ndash; Creates a row within the container. &ndash;&gt;-->
+<!--            <div class="col-md-6 offset-md-3"> &lt;!&ndash;  Creates a column that takes up 6 out of 12 columns on medium-sized screens and is horizontally centered. &ndash;&gt;-->
+<!--               <div class="card"> &lt;!&ndash; Creates a card. &ndash;&gt;-->
+<!--                    <div class="card-header text-center fs-4">Register Page</div> &lt;!&ndash; Defines a card header with centered text and a font size of 4. &ndash;&gt;-->
+
+<!--                   <div th:if="${msg}" class="alert alert-success">-->
+<!--                       <span th:text="${msg}"></span>-->
+<!--                   </div>-->
+
+<!--                   <div th:if="${errorMessage}" class="alert alert-danger">-->
+<!--                       <span th:text="${errorMessage}"></span>-->
+<!--                   </div>-->
+
+<!--                   <div class="card-body"> &lt;!&ndash; Defines the body of the card. &ndash;&gt;-->
+<!--                        <form th:action="@{/saveUser}" method="post" th:object="${user}"> &lt;!&ndash; Creates a form with the action attribute set to /saveUser and the method set to POST. The th:object attribute binds the form to the user object. &ndash;&gt;-->
+<!--                            <div class="form-group mb-3">-->
+<!--                                <label class="control-label" for="firstName"> First Name </label>-->
+<!--                                <input id="firstName" class="form-control" th:field="*{firstName}"-->
+<!--                                       required autofocus="autofocus" /> &lt;!&ndash; Creates an input field for the first name with the th:field attribute binding it to the firstName property of the user object. &ndash;&gt;-->
+<!--                            </div>-->
+<!--                            <div class="form-group mb-3">-->
+<!--                                <label class="control-label" for="lastName"> Last Name </label> <input-->
+<!--                                    id="lastName" class="form-control" th:field="*{lastName}"-->
+<!--                                    required autofocus="autofocus" />-->
+<!--                            </div>-->
+
+<!--                            <div class="form-group mb-3">-->
+<!--                                <label class="control-label" for="email"> Email </label> <input-->
+<!--                                    id="email" class="form-control" th:field="*{email}" required-->
+<!--                                    autofocus="autofocus" />-->
+<!--                            </div>-->
+
+<!--                            <div class="form-group mb-3">-->
+<!--                                <label class="control-label" for="password"> Password </label> <input-->
+<!--                                    id="password" class="form-control" type="password"-->
+<!--                                    th:field="*{password}" required autofocus="autofocus" />-->
+<!--                            </div>-->
+
+<!--                            <div class="form-group mb-3">-->
+<!--                                <button type="submit" class="btn btn-success">Register</button> &lt;!&ndash;  Creates a submit button for the form.&ndash;&gt;-->
+<!--                                <span>Already registered? <a href="/" th:href="@{/signin}">Login-->
+<!--								here</a></span>-->
+<!--                            </div>-->
+<!--                        </form>-->
+<!--&lt;!&ndash;                        <form th:action="@{/saveUser}" method="post" th:object="${user}">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div class="mb-3">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <label>Enter First Name</label> <input type="text"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                                       name="firstName" class="form-control">&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div class="mb-3">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <label>Enter Last Name</label> <input type="text"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                                      name="lastName" class="form-control">&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            <div class="mb-3">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <label>Enter Email</label> <input type="text" name="email"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                                  class="form-control">&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div class="mb-3">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <label>Enter Password</label> <input type="password"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                                     name="password" class="form-control">&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <button class="btn btn-primary col-md-12">Register</button>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </form>&ndash;&gt;-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+</section>
+
+</body>
+</html>
